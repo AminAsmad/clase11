@@ -1,4 +1,5 @@
 import React from 'react'
+import { formatCurrency } from '../utils/utils'
 
 const CardProduct = ({item}) => {
   return (
@@ -18,16 +19,18 @@ const CardProduct = ({item}) => {
                             <a href="product-grids.html"> {item.title}</a>
                         </h4>
                         <ul className="review">
-                            <li><i className="lni lni-star-filled" /></li>
-                            <li><i className="lni lni-star-filled" /></li>
-                            <li><i className="lni lni-star-filled" /></li>
-                            <li><i className="lni lni-star-filled" /></li>
-                            <li><i className="lni lni-star" /></li>
-                            <li><span>{item.rating}</span></li>
-                        </ul>
-                        <div className="price">
-                            <span>{item.price}</span>
-                        </div>
+                {[...Array(Math.floor(item.rating))].map((_, index) => (
+                    <li key={`full-${index}`}><i className="lni lni-star-filled" /></li>
+                ))}
+                {[...Array(6 - Math.ceil(item.rating))].map((_, index) => (
+                    <li key={`empty-${index}`}><i className="lni lni-star" /></li>
+                ))}
+                <li><span>{Math.floor(item.rating)}</span></li>
+                </ul>
+                <div className="price text-center">
+                    <span className="text-danger">${formatCurrency(item.price)}</span>
+                </div>
+                       
                     </div>
                 </div>
                 {/* End Single Product */}
