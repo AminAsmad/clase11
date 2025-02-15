@@ -45,7 +45,7 @@ const Productos = () => {
                                     </div>
                                 </div>
                                 <div className="product-info">
-                                    <span className="category">Watches</span>
+                                    <span className="category">{item.category}</span>
                                     <h4 className="title">
                                         <a href="product-grids.html"> {item.title}</a>
                                     </h4>

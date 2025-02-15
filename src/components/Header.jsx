@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Menu from './Menu'
+import Buscador from './Buscador'
 
 const Header = () => {
   return (
@@ -97,12 +98,7 @@ const Header = () => {
                   </select>
                 </div>
               </div>
-              <div className="search-input">
-                <input type="text" placeholder="Search" />
-              </div>
-              <div className="search-btn">
-                <button><i className="lni lni-search-alt" /></button>
-              </div>
+             <Buscador/>
             </div>
             {/* navbar search Ends */}
           </div>
@@ -218,6 +214,8 @@ const Header = () => {
                 <li className="nav-item">
                   <a className="dd-menu collapsed" href="javascript:void(0)" data-bs-toggle="collapse" data-bs-target="#submenu-1-3" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Shop</a>
                   <ul className="sub-menu collapse" id="submenu-1-3">
+                  <li className="nav-item"><Link to={"/tienda"} href="product-grids.html">Tienda</Link></li>
+
                     <li className="nav-item"><Link to={"/productos/smartphones"} href="product-grids.html">Celulares</Link></li>
                     <li className="nav-item"><Link to={"/productos/laptops"} href="product-list.html">Laptops</Link></li>
                     <li className="nav-item"><Link to={"/productos/tablets"} href="product-details.html">tabletas</Link></li>
